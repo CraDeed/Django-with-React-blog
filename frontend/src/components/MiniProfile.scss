@@ -1,0 +1,27 @@
+@mixin border-radius(
+    $top-left: 10px,
+    $top-right: null,
+    $bottom-right: null,
+    $bottom-left: null
+) {
+    -webkit-border-radius: $top-left $top-right $bottom-right $bottom-left;
+    -moz-border-radius: $top-left $top-right $bottom-right $bottom-left;
+    -ms-border-radius: $top-left $top-right $bottom-right $bottom-left;
+    border-radius: $top-left $top-right $bottom-right $bottom-left;
+}
+
+.cardstyle {
+    width: 240px;
+    height: 360px;
+    text-align: center;
+
+    @include border-radius(5em);
+
+    // boxshadow: 5px 8px 24px 5px rgba(208, 216, 243, 0.6);
+
+    .imgStyle {
+        margin: 0 auto;
+        width: 100px;
+        height: 100px;
+    }
+}
