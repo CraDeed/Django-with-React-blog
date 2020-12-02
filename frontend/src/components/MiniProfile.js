@@ -14,20 +14,18 @@ function MiniProfile() {
         Axios.get(apiUrl)
             .then((response) => {
                 const { data } = response;
-                console.log("loaded res : ", data);
                 setUser(data);
             })
             .catch((error) => {
                 // error.response
             });
-        console.log("mounted");
     }, []); // 빈어레이는 마운트 될때 한번만 실행
 
     // console.log(user[0].username);
 
     return (
         <Card
-            className="cardstyle"
+            className="profile-cardstyle"
             style={Style}
             cover={
                 <img
@@ -59,6 +57,7 @@ const Style = {
     //     width: "60px",
     //     height: "102px",
     borderRadius: "8px",
+    marginTop: "1rem",
     //     marginRight: "24px",
     boxShadow: "0px 0px 12px 2px rgba(208, 216, 243, 0.6)",
 };

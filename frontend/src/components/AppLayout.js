@@ -1,20 +1,19 @@
 import React, { useState } from "react";
-import { Button, Modal } from "antd";
+import { Button } from "antd";
 import "./AppLayout.scss";
 import MiniProfile from "./MiniProfile";
 import RecentList from "./RecentList";
 import Signup from "../pages/accounts/Signup";
+import Login from "../pages/accounts/Login";
 
 function AppLayout({ children }) {
-    const [show, setShow] = useState(false);
+    const [SignupShow, setSignupShow] = useState(false);
+    const [SignInShow, setSignInShow] = useState(false);
 
-    const showModal = () => {
-        setShow(true);
-    };
-
-    const CloseModal = () => {
-        setShow(false);
-    };
+    const ShowSignInModal = () => setSignInShow(true);
+    const CloseSignInModal = () => setSignInShow(false);
+    const ShowSignupModal = () => setSignupShow(true);
+    const CloseSignupModal = () => setSignupShow(false);
 
     return (
         <div className="app">
@@ -24,10 +23,18 @@ function AppLayout({ children }) {
                     <h1>This Plus!</h1>
                 </div>
                 <div className="topnav">
-                    <Button type="primary" onClick={showModal}>
+                    <Button
+                        type="primary"
+                        onClick={ShowSignInModal}
+                        style={{ marginRight: "1em" }}
+                    >
+                        Singin
+                    </Button>
+                    <Login Open={SignInShow} Close={CloseSignInModal}></Login>
+                    <Button type="primary" onClick={ShowSignupModal}>
                         Singup
                     </Button>
-                    <Signup Open={show} Close={CloseModal}></Signup>
+                    <Signup Open={SignupShow} Close={CloseSignupModal}></Signup>
                 </div>
             </header>
             <div className="leftsidebar">
